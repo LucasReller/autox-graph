@@ -1,42 +1,26 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ICompetitorData } from '../interfaces/ICompetitorData';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { DriverInfoComponent } from '../components/driver-info/driver-info.component';
+import { SeasonInfoComponent } from '../components/season-info/season-info.component';
+import { CommonModule } from '@angular/common';
+import { AutoxHeaderComponent } from '../components/autox-header/autox-header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, DriverInfoComponent, SeasonInfoComponent, AutoxHeaderComponent, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
 export class AppComponent {
-  title: string;
+  name!: string;
+  year!: string;
 
-  constructor(private http: HttpClient) {
-    this.title = "test";
-  }
+  constructor() {}
 
-  async updateTitle(){
-    let result = await this.getData();
-    console.log(result.name);
-    this.title = result.name;
-  }  
-
-  async getData(): Promise<ICompetitorData>{
-    const value = await this.getCompetitorData("Lucas Reller", "2023");
-    return value;
-  }
-
-  getCompetitorData(name:string, year:string): Promise<ICompetitorData>{
-    return fetch("https://localhost:7210/Competitor/"+name+"?year="+year)
-    .then(response => {
-      if (!response.ok) {
-        console.log("Error: " + response)
-        throw new Error(response.statusText)
-      }
-      return response.json() as Promise<ICompetitorData>
-    })
+  async executeSearch(searchParams: [string, string]) {
+    this.name = searchParams[0];
+    this.year = searchParams[1];
   }
 }

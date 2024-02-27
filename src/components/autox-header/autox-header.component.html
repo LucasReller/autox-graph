@@ -1,0 +1,9 @@
+<div>
+  <input #boxName name="competitor" placeholder="Name" (keyup)="getNameValue(boxName.value)">
+  <select #boxYear text="Year" name="year" (change)="getYearValue(boxYear.value)">
+    <option *ngFor="let item of yearList;" [ngValue]="item">
+      {{item}}
+    </option>
+  </select>
+  <button (click)="executeSearch()">Search</button>
+</div>

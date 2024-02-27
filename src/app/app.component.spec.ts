@@ -17,7 +17,7 @@ describe('AppComponent', () => {
   it(`should have the 'autox-graph' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('autox-graph');
+    expect(app.name).toEqual('autox-graph');
   });
 
   it('should render title', () => {
