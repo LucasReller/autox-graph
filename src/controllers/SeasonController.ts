@@ -14,8 +14,7 @@ export class SeasonController{
   }
 
   getSeasonData(year: string): Promise<ISeasonData>{
-    throw Error;
-    return fetch("https://localhost:7210/allyears")
+    return fetch("https://localhost:7210/Season/"+year)
     .then(response => {
       if (!response.ok) {
         console.log("Error: " + response)
