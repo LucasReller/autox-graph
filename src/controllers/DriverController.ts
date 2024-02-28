@@ -9,7 +9,7 @@ export class DriverController{
           console.log("Error: " + response)
           throw new Error(response.statusText)
         }
-        return response.json() as Promise<string[]>
+        return response.json() as Promise<IDriverData>
       })
     }
   

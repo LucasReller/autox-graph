@@ -4,6 +4,12 @@ import { DriverInfoComponent } from '../components/driver-info/driver-info.compo
 import { SeasonInfoComponent } from '../components/season-info/season-info.component';
 import { CommonModule } from '@angular/common';
 import { AutoxHeaderComponent } from '../components/autox-header/autox-header.component';
+import { DriverController } from '../controllers/DriverController';
+import { CompetitiorController } from '../controllers/CompetitorController';
+import { SeasonController } from '../controllers/SeasonController';
+import { IDriverData } from '../interfaces/IDriverData';
+import { ICompetitorData } from '../interfaces/ICompetitorData';
+import { ISeasonData } from '../interfaces/ISeasonData';
 
 @Component({
   selector: 'app-root',
@@ -14,13 +20,42 @@ import { AutoxHeaderComponent } from '../components/autox-header/autox-header.co
 })
 
 export class AppComponent {
-  name!: string;
-  year!: string;
+  driver!: IDriverData;
+  competitor!: ICompetitorData;
+  season!:ISeasonData;
+
+
+  driverController: DriverController = new DriverController();
+  competitorController: CompetitiorController = new CompetitiorController();
+  seasonController: SeasonController = new SeasonController();
+
 
   constructor() {}
 
   async executeSearch(searchParams: [string, string]) {
-    this.name = searchParams[0];
-    this.year = searchParams[1];
+    let name = searchParams[0];
+    let year = searchParams[1];
+    this.getDriverData(name);
+    this.getCompetitorData(name, year);
+    this.getSeasonData(year);
   }
+
+  async getDriverData(name: string): Promise<IDriverData> {
+    let result = await this.driverController.getDriverData(name);
+    this.driver = result;
+    return result
+  }
+
+  async getCompetitorData(name: string, year: string): Promise<ICompetitorData> {
+    let result = await this.competitorController.getCompetitorData(name, year);
+    this.competitor = result;
+    return result;
+  }
+
+  async getSeasonData(year: string): Promise<ISeasonData> {
+    let result = await this.seasonController.getSeasonData(year);
+    this.season = result
+    return result;
+  }
+
 }

@@ -4,5 +4,6 @@ export interface ICompetitorData {
     eventsCompleted: number,
     totalPoints: string,
     avgPoints: string,
-    eventPoints: string[]
+    eventPoints: number[],
+    eventNames: string[]
 }

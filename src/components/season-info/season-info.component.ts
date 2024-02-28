@@ -3,29 +3,25 @@ import { ICompetitorData } from '../../interfaces/ICompetitorData';
 import { ISeasonData } from '../../interfaces/ISeasonData';
 import { CompetitiorController } from '../../controllers/CompetitorController';
 import { SeasonController } from '../../controllers/SeasonController';
+import { ChartsComponent } from '../charts/charts.component';
+import { ChartItem } from 'chart.js';
+import { SeasonChartComponent } from '../season-chart/season-chart.component';
 
 @Component({
   selector: 'app-season-info',
   standalone: true,
-  imports: [],
+  imports: [SeasonChartComponent],
   templateUrl: './season-info.component.html',
   styleUrl: './season-info.component.scss'
 })
 export class SeasonInfoComponent {
-  @Input() driverName!:string;
-  @Input() seasonYear!:string;
-
-  competitorController: CompetitiorController = new CompetitiorController();
-  seasonController: SeasonController = new SeasonController();
+  @Input() competitor!:ICompetitorData;
+  @Input() season!:ISeasonData;
+  seasonChart: string = "s";
 
   constructor() {}
 
-  getCompetitorData(name: string, year: string): Promise<ICompetitorData> {
-    return this.competitorController.getCompetitorData(name, year);
-  }
+  ngInit(){
 
-  getSeasonData(year: string): Promise<ISeasonData> {
-    return this.seasonController.getSeasonData(year);
   }
-
 }
