@@ -1,0 +1,22 @@
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.125);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+tr {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#row3 {
+    background-color: rgba(138,201,243,0.4);
+}
+
+td {
+    border: none !important;
+}

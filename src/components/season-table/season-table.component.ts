@@ -14,7 +14,8 @@ export class SeasonTableComponent {
   @Input() competitor!:ICompetitorData;
   @Input() season!:ISeasonData;
   name!: string;
-  data: [number, string, string][] = [[1, "test", "test"]];
+  data!: [string, string, string][];
+  tableIndex: number = 0;
 
   constructor() {}
 
@@ -24,9 +25,9 @@ export class SeasonTableComponent {
     this.data = this.generateData();
   }
 
-  private generateData():[number, string, string][]{
-    let data: [number, string, string][] = [];
-    let placement:number;
+  private generateData():[string, string, string][]{
+    let data: [string, string, string][] = [];
+    let placement:string;
     let name: string;
     let pointsDiff: string;
     let refPoints: number;
@@ -37,16 +38,17 @@ export class SeasonTableComponent {
         if(i>3){
           for(let j=0; j<7; j++){
             let index = i-3+j;
-            placement = index+1;
+            placement = (index+1).toString() + ".";
             name = this.season.competitors[index].name;
             pointsDiff = this.calculatePointsDiff(refPoints,this.season.competitors[index].totalPoints);
             data.push([placement, name, pointsDiff]);
           }
         }
         else{
+          this.tableIndex = 3-i;
           for(let j=0; j<7; j++){
             let index = j;
-            placement = index+1;
+            placement = (index+1).toString() + ".";
             name = this.season.competitors[index].name;
             pointsDiff = this.calculatePointsDiff(refPoints,this.season.competitors[index].totalPoints);
             data.push([placement, name, pointsDiff]);
