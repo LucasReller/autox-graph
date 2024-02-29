@@ -16,8 +16,8 @@ import { SeasonTableComponent } from '../season-table/season-table.component';
   styleUrl: './season-info.component.scss'
 })
 export class SeasonInfoComponent {
-  @Input() competitor!:ICompetitorData;
-  @Input() season!:ISeasonData;
+  @Input() competitor?:ICompetitorData;
+  @Input() season?:ISeasonData;
   seasonChart: string = "s";
 
   constructor() {}

@@ -9,9 +9,9 @@ import { Chart, registerables } from 'chart.js';
   styleUrl: './driver-chart.component.scss'
 })
 export class DriverChartComponent {
-  @Input() chartX!: string[];
-  @Input() chartResults!: number[];
-  @Input() name: string = "";
+  @Input() chartX?: string[];
+  @Input() chartResults?: number[];
+  @Input() name?: string = "";
   tempName: string = "";
   tempCount: number = 0;
   myChart!: Chart;
@@ -29,16 +29,16 @@ export class DriverChartComponent {
       this.myChart.destroy();
       this.createChart();
     }
-    this.tempName = this.name;
+    this.tempName = this.name!;
   }
 
   createChart(){
     this.myChart = new Chart("dChart", {
       type: 'line',
       data: {
-        labels: this.chartX,
+        labels: this.chartX!,
         datasets: [{
-          data: this.chartResults,
+          data: this.chartResults!,
           borderWidth: 1
         }]
       },
@@ -71,9 +71,9 @@ export class DriverChartComponent {
 
   private updateChartLabelsAndData(){
     for(let i = 0; i < this.tempCount; i++){
-      this.myChart.data.labels?.push(this.chartX[i]);
+      this.myChart.data.labels?.push(this.chartX![i]);
       this.myChart.data.datasets.forEach((dataset) => {
-        dataset.data.push(this.chartResults[i]);
+        dataset.data.push(this.chartResults![i]);
       });
     }
     this.myChart.update();

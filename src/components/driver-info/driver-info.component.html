@@ -1,14 +1,14 @@
 <div>      
-    <h1>{{this.driver.name}}</h1>
-    <div>Active Years: {{this.driver.activeYears}}</div>
-    <div>Total Events: {{this.driver.totalEventsCompleted}}</div>
-    <div>Best DOTY Finish: {{this.driver.bestDOTYFinish}}</div>
-    <div>Average DOTY Finish: {{this.driver.avgDOTYFinish}}</div>
-    <div>Highest Average DOTY Points: {{this.driver.bestSeasonAvgPoints}}</div>
-    <div>Highest Event Points: {{this.driver.bestEventPoints}}</div>
-    <div>Overall Average Event Points: {{this.driver.avgEventPoints}}</div>
+    <h1>{{this.driver?.name}}</h1>
+    <div>Active Years: {{this.driver?.activeYears}}</div>
+    <div>Total Events: {{this.driver?.totalEventsCompleted}}</div>
+    <div>Best DOTY Finish: {{this.driver?.bestDOTYFinish}}</div>
+    <div>Average DOTY Finish: {{this.driver?.avgDOTYFinish}}</div>
+    <div>Highest Average DOTY Points: {{this.driver?.bestSeasonAvgPoints}}</div>
+    <div>Highest Event Points: {{this.driver?.bestEventPoints}}</div>
+    <div>Overall Average Event Points: {{this.driver?.avgEventPoints}}</div>
 </div>
   <br><br><br>
 <div>
-  <app-driver-chart [name]="driver.name" [chartX]="driver.activeYears" [chartResults]="driver.dotyAvgList"></app-driver-chart>
+  <app-driver-chart [name]="driver?.name" [chartX]="driver?.activeYears" [chartResults]="driver?.dotyAvgList"></app-driver-chart>
 </div>

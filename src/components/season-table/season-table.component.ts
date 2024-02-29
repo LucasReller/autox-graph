@@ -11,8 +11,8 @@ import { CommonModule } from '@angular/common';
   styleUrl: './season-table.component.scss'
 })
 export class SeasonTableComponent {
-  @Input() competitor!:ICompetitorData;
-  @Input() season!:ISeasonData;
+  @Input() competitor?:ICompetitorData;
+  @Input() season?:ISeasonData;
   name!: string;
   data!: [string, string, string][];
   tableIndex: number = 0;
@@ -31,31 +31,34 @@ export class SeasonTableComponent {
     let name: string;
     let pointsDiff: string;
     let refPoints: number;
-
-    for(var i=0; i<this.season.competitors.length; i++){
-      if(this.season.competitors[i].name == this.competitor.name){
-        refPoints = parseFloat(this.season.competitors[i].totalPoints);
-        if(i>3){
-          for(let j=0; j<7; j++){
-            let index = i-3+j;
-            placement = (index+1).toString() + ".";
-            name = this.season.competitors[index].name;
-            pointsDiff = this.calculatePointsDiff(refPoints,this.season.competitors[index].totalPoints);
-            data.push([placement, name, pointsDiff]);
+    
+    if(this.season! && this.competitor!)
+    {
+      for(var i=0; i<this.season!.competitors.length; i++){
+        if(this.season!.competitors[i].name == this.competitor!.name){
+          refPoints = parseFloat(this.season!.competitors[i].totalPoints);
+          if(i>3){
+            for(let j=0; j<7; j++){
+              let index = i-3+j;
+              placement = (index+1).toString() + ".";
+              name = this.season!.competitors[index].name;
+              pointsDiff = this.calculatePointsDiff(refPoints,this.season!.competitors[index].totalPoints);
+              data.push([placement, name, pointsDiff]);
+            }
           }
-        }
-        else{
-          this.tableIndex = 3-i;
-          for(let j=0; j<7; j++){
-            let index = j;
-            placement = (index+1).toString() + ".";
-            name = this.season.competitors[index].name;
-            pointsDiff = this.calculatePointsDiff(refPoints,this.season.competitors[index].totalPoints);
-            data.push([placement, name, pointsDiff]);
+          else{
+            this.tableIndex = 3-i;
+            for(let j=0; j<7; j++){
+              let index = j;
+              placement = (index+1).toString() + ".";
+              name = this.season!.competitors[index].name;
+              pointsDiff = this.calculatePointsDiff(refPoints,this.season!.competitors[index].totalPoints);
+              data.push([placement, name, pointsDiff]);
+            }
           }
         }
       }
-    }
+  }
 
     return data;
   }

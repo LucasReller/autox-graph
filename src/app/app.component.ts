@@ -20,9 +20,9 @@ import { ISeasonData } from '../interfaces/ISeasonData';
 })
 
 export class AppComponent {
-  driver!: IDriverData;
-  competitor!: ICompetitorData;
-  season!:ISeasonData;
+  driver?: IDriverData;
+  competitor?: ICompetitorData;
+  season?:ISeasonData;
 
 
   driverController: DriverController = new DriverController();

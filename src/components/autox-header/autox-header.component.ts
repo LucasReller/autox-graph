@@ -38,9 +38,15 @@ export class AutoxHeaderComponent {
   }
 
   async getYears(){
-    let result = await this.seasonController.getYearList();
-    this.yearList = result;
-    this.selectedYear = result[0];
+    try {
+      let result = await this.seasonController.getYearList();
+      this.yearList = result;
+      this.selectedYear = result[0];
+    } catch (error) {
+      console.log("Failed to retrieve list of possible years");
+    }
+
+
   }
 
 }

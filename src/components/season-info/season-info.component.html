@@ -1,21 +1,21 @@
 <div class="right-top">
-    <h1>{{season.year}}  DOTY Placement</h1>
+    <h1>{{season?.year}}  DOTY Placement</h1>
     <div class="seasonDriverStats">
-      <div class="totalPoints">Total pts. {{competitor.totalPoints}}</div>    
-      <div class="avgPoints">Average pts. {{competitor.avgPoints}}</div>
+      <div class="totalPoints">Total pts. {{competitor?.totalPoints}}</div>    
+      <div class="avgPoints">Average pts. {{competitor?.avgPoints}}</div>
       <br>
       <app-season-table [competitor]="competitor" [season]="season" ></app-season-table>
     </div>
     <br>
     <div class="seasonDriverGraph">
-      <app-season-chart [name]="competitor.name" [chartX]="competitor.eventNames" [chartResults]="competitor.eventPoints"></app-season-chart>
+      <app-season-chart [name]="competitor?.name" [chartX]="competitor?.eventNames" [chartResults]="competitor?.eventPoints"></app-season-chart>
     </div>
   </div>
   <div class="right-bottom">
-    <h1>{{season.year}} Season Info</h1>
-    <div>Total Drivers: {{season.totalCompetitors}}</div>
-    <div>DOTY Competitors: {{season.totalDOTY}}</div>
-    <div>Top 10 Avg pts.: {{season.topTenAvg}}</div>
-    <div>Top 5 Avg pts.: {{season.topFiveAvg}}</div>
+    <h1>{{season?.year}} Season Info</h1>
+    <div>Total Drivers: {{season?.totalCompetitors}}</div>
+    <div>DOTY Competitors: {{season?.totalDOTY}}</div>
+    <div>Top 10 Avg pts.: {{season?.topTenAvg}}</div>
+    <div>Top 5 Avg pts.: {{season?.topFiveAvg}}</div>
   </div>
   <br>
