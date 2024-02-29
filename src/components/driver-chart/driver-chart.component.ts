@@ -11,6 +11,10 @@ import { Chart, registerables } from 'chart.js';
 export class DriverChartComponent {
   @Input() chartX!: string[];
   @Input() chartResults!: number[];
+  @Input() name: string = "";
+  tempName: string = "";
+  tempCount: number = 0;
+  myChart!: Chart;
   
   constructor() {
     Chart.register(...registerables);
@@ -20,12 +24,16 @@ export class DriverChartComponent {
     this.createChart();
   }
 
-  ngAfterViewInit(){
-    
+  ngOnChanges(){
+    if(this.name != this.tempName && this.tempName != ""){
+      this.myChart.destroy();
+      this.createChart();
+    }
+    this.tempName = this.name;
   }
 
   createChart(){
-    var myChart = new Chart("dChart", {
+    this.myChart = new Chart("dChart", {
       type: 'line',
       data: {
         labels: this.chartX,
@@ -50,6 +58,25 @@ export class DriverChartComponent {
         }
       }
     });
+  }
+
+  private removeChartLabelsAndData(){
+    for(let i = 0; i < this.tempCount; i++){
+      this.myChart.data.labels?.pop();
+      this.myChart.data.datasets.forEach((dataset) => {
+        dataset.data.pop();
+      });
+    }
+  }
+
+  private updateChartLabelsAndData(){
+    for(let i = 0; i < this.tempCount; i++){
+      this.myChart.data.labels?.push(this.chartX[i]);
+      this.myChart.data.datasets.forEach((dataset) => {
+        dataset.data.push(this.chartResults[i]);
+      });
+    }
+    this.myChart.update();
   }
 
 }

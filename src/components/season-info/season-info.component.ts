@@ -6,11 +6,12 @@ import { SeasonController } from '../../controllers/SeasonController';
 import { ChartsComponent } from '../charts/charts.component';
 import { ChartItem } from 'chart.js';
 import { SeasonChartComponent } from '../season-chart/season-chart.component';
+import { SeasonTableComponent } from '../season-table/season-table.component';
 
 @Component({
   selector: 'app-season-info',
   standalone: true,
-  imports: [SeasonChartComponent],
+  imports: [SeasonChartComponent, SeasonTableComponent], 
   templateUrl: './season-info.component.html',
   styleUrl: './season-info.component.scss'
 })

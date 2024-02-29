@@ -3,10 +3,12 @@
     <div class="seasonDriverStats">
       <div class="totalPoints">Total pts. {{competitor.totalPoints}}</div>    
       <div class="avgPoints">Average pts. {{competitor.avgPoints}}</div>
+      <br>
+      <app-season-table [competitor]="competitor" [season]="season" ></app-season-table>
     </div>
-    <br><br><br>
+    <br>
     <div class="seasonDriverGraph">
-      <app-season-chart [id]="seasonChart"[chartX]="competitor.eventNames" [chartResults]="competitor.eventPoints"></app-season-chart>
+      <app-season-chart [name]="competitor.name" [chartX]="competitor.eventNames" [chartResults]="competitor.eventPoints"></app-season-chart>
     </div>
   </div>
   <div class="right-bottom">
