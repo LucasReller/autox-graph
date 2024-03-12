@@ -3,7 +3,7 @@ import { ISeasonData } from "../interfaces/ISeasonData";
 export class SeasonController{
 
   public getYearList(): Promise<string[]>{
-    return fetch("https://localhost:7210/allyears")
+    return fetch("http://localhost:5287/allyears")
     .then(response => {
       if (!response.ok) {
         console.log("Error: " + response)
@@ -14,7 +14,7 @@ export class SeasonController{
   }
 
   getSeasonData(year: string): Promise<ISeasonData>{
-    return fetch("https://localhost:7210/Season/"+year)
+    return fetch("http://localhost:5287/Season/"+year)
     .then(response => {
       if (!response.ok) {
         console.log("Error: " + response)
