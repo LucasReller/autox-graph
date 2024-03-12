@@ -1,16 +1,23 @@
-<div *ngIf="driver != null">
+<div class="driver-info" *ngIf="driver != null">
+  <h1>{{this.driver.name}}</h1>
   <div>      
-      <h1>{{this.driver.name}}</h1>
-      <div>Active Years: {{this.driver.activeYears}}</div>
-      <div>Total Events: {{this.driver.totalEventsCompleted}}</div>
-      <div>Best DOTY Finish: {{this.driver.bestDOTYFinish}}</div>
-      <div>Average DOTY Finish: {{this.driver.avgDOTYFinish}}</div>
-      <div>Highest Average DOTY Points: {{this.driver.bestSeasonAvgPoints}}</div>
-      <div>Highest Event Points: {{this.driver.bestEventPoints}}</div>
-      <div>Overall Average Event Points: {{this.driver.avgEventPoints}}</div>
+      <span class="left-span">Active Years:</span>  
+      <span class="right-span">{{this.driver.activeYears}}</span>
+      <span class="left-span">Total Events:</span>  
+      <span class="right-span">{{this.driver.totalEventsCompleted}}</span>
+      <span class="left-span">Best DOTY Finish:</span>  
+      <span class="right-span">{{this.driver.bestDOTYFinish}}</span>
+      <span class="left-span">Average DOTY Finish:</span>  
+      <span class="right-span">{{this.driver.avgDOTYFinish}}</span>
+      <span class="left-span">Highest Average DOTY Points:</span>  
+      <span class="right-span">{{this.driver.bestSeasonAvgPoints}}</span>
+      <span class="left-span">Highest Event Points:</span>  
+      <span class="right-span">{{this.driver.bestEventPoints}}</span>
+      <span class="left-span">Overall Average Event Points:</span>  
+      <span class="right-span">{{this.driver.avgEventPoints}}</span>
   </div>
     <br><br><br>
-  <div>
+  <div class="driver-graph">
     <app-driver-chart [name]="driver.name" [chartX]="driver.activeYears" [chartResults]="driver.dotyAvgList"></app-driver-chart>
   </div>
 </div>

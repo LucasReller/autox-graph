@@ -3,3 +3,29 @@
     width: 400px;
     height: 400px;
 }
+
+h1{
+    vertical-align: middle;
+    margin: auto;
+    font-size: 48;
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.driver-info{
+    text-align: center;
+}
+
+.left-span{
+    float: left;
+    clear: left;
+    margin-left: 35%;
+    text-align: center;
+}
+.right-span{
+    float: right;
+    clear: right;
+    margin-right: 35%;
+    text-align: center;
+}
+

@@ -1,11 +1,18 @@
-tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.125);
+div{
+    width: 100%;
 }
 
 table {
-    width: 100%;
     border-collapse: collapse;
-    border: none;
+    border: lightgray 1px;
+    border-radius: 6px;
+    width: 85%;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.125);
 }
 
 tr {
