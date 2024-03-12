@@ -1,4 +1,5 @@
 import { ICompetitorData } from "../interfaces/ICompetitorData"
+import { ControllerHelper } from "./ControllerHelper"
 
 export class CompetitiorController{
     
