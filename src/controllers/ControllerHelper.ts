@@ -1,3 +1,3 @@
 class ControllerHelper{
-    static baseUrl = "https://localhost:5287/";
+    static baseUrl = "http://localhost:5287/";
 }
