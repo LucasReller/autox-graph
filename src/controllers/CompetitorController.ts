@@ -3,7 +3,7 @@ import { ICompetitorData } from "../interfaces/ICompetitorData"
 export class CompetitiorController{
     
     getCompetitorData(name:string, year:string): Promise<ICompetitorData>{
-        return fetch("http://localhost:5287/Competitor/"+name+"?year="+year)
+        return fetch(ControllerHelper.baseUrl+"Competitor/"+name+"?year="+year)
         .then(response => {
           if (!response.ok) {
             console.log("Error: " + response)
