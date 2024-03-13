@@ -38,6 +38,7 @@ export class SeasonTableComponent {
         if(this.season!.competitors[i].name == this.competitor!.name){
           refPoints = parseFloat(this.season!.competitors[i].totalPoints);
           if(i>3){
+            this.tableIndex = 0;
             for(let j=0; j<7; j++){
               let index = i-3+j;
               placement = (index+1).toString() + ".";
@@ -48,8 +49,8 @@ export class SeasonTableComponent {
           }
           else{
             this.tableIndex = 3-i;
-            for(let j=0; j<7; j++){
-              let index = j;
+            for(let k=0; k<7; k++){
+              let index = k;
               placement = (index+1).toString() + ".";
               name = this.season!.competitors[index].name;
               pointsDiff = this.calculatePointsDiff(refPoints,this.season!.competitors[index].totalPoints);
