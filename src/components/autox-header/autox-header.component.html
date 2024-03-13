@@ -7,3 +7,9 @@
   </select>
   <button (click)="executeSearch()">Search</button>
 </div>
+<div>
+  <form>
+    <label for="completeSeasons">Only Include Complete Seasons</label>
+    <input type="checkbox" id="completeSeasons" [checked]="this.onlyCompleteSeasons" (change)="this.onlyCompleteSeasons= !this.onlyCompleteSeasons">
+  </form>
+</div>

@@ -25,11 +25,14 @@ export class DriverChartComponent {
   }
 
   ngOnChanges(){
-    if(this.name != this.tempName && this.tempName != ""){
-      this.myChart.destroy();
-      this.createChart();
-    }
-    this.tempName = this.name!;
+    // if(this.name != this.tempName && this.tempName != ""){
+    //   this.myChart.destroy();
+    //   this.createChart();
+    // }
+    // this.tempName = this.name!;
+    this.myChart.destroy();
+    this.createChart();
+
   }
 
   createChart(){

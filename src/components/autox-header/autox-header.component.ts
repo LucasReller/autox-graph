@@ -14,8 +14,9 @@ export class AutoxHeaderComponent {
   yearList!: string[];
   selectedYear!: string;
   searchDriverName!: string;
+  onlyCompleteSeasons!: boolean;
   seasonController: SeasonController = new SeasonController();
-  @Output() searchEvent = new EventEmitter<[string, string]>();
+  @Output() searchEvent = new EventEmitter<[string, string, boolean]>();
 
   constructor() {
   }
@@ -26,7 +27,8 @@ export class AutoxHeaderComponent {
 
   executeSearch() {
     //call APIs and spread info to other components
-    this.searchEvent.emit([this.searchDriverName, this.selectedYear]);
+    console.log("only complete seasons" + this.onlyCompleteSeasons);
+    this.searchEvent.emit([this.searchDriverName, this.selectedYear, this.onlyCompleteSeasons]);
   }
 
   getNameValue(val: string) {

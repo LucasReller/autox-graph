@@ -32,16 +32,17 @@ export class AppComponent {
 
   constructor() {}
 
-  async executeSearch(searchParams: [string, string]) {
+  async executeSearch(searchParams: [string, string, boolean]) {
     let name = searchParams[0];
     let year = searchParams[1];
-    this.getDriverData(name);
+    let onlyCompleteSeasons = searchParams[2];
+    this.getDriverData(name, onlyCompleteSeasons);
     this.getCompetitorData(name, year);
     this.getSeasonData(year);
   }
 
-  async getDriverData(name: string): Promise<IDriverData> {
-    let result = await this.driverController.getDriverData(name);
+  async getDriverData(name: string, onlyComplete: boolean): Promise<IDriverData> {
+    let result = await this.driverController.getDriverData(name, onlyComplete);
     this.driver = result;
     return result
   }

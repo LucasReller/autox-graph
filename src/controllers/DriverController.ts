@@ -3,8 +3,8 @@ import { ControllerHelper } from "./ControllerHelper";
 
 export class DriverController{
 
-    getDriverData(name: string): Promise<IDriverData>{
-      return fetch(ControllerHelper.baseUrl+"Driver/"+name )
+    getDriverData(name: string, onlyComplete: boolean): Promise<IDriverData>{
+      return fetch(ControllerHelper.baseUrl+"Driver/"+name+"?onlyComplete="+onlyComplete)
       .then(response => {
         if (!response.ok) {
           console.log("Error: " + response)
