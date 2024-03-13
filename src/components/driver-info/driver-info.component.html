@@ -1,6 +1,6 @@
 <div class="driver-info" *ngIf="driver != null">
   <h1>{{this.driver.name}}</h1>
-  <div>      
+  <div class="driver-details">      
       <span class="left-span">Active Years:</span>  
       <span class="right-span">{{this.driver.activeYears}}</span>
       <span class="left-span">Total Events:</span>  
@@ -16,7 +16,7 @@
       <span class="left-span">Overall Average Event Points:</span>  
       <span class="right-span">{{this.driver.avgEventPoints}}</span>
   </div>
-    <br><br><br>
+    <br>
   <div class="driver-graph">
     <app-driver-chart [name]="driver.name" [chartX]="driver.activeYears" [chartResults]="driver.dotyAvgList"></app-driver-chart>
   </div>
