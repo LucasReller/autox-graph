@@ -1,6 +1,6 @@
 <div>
-  <input #boxName name="competitor" placeholder="Name" (keyup)="getNameValue(boxName.value)">
-  <select #boxYear text="Year" name="year" (change)="getYearValue(boxYear.value)">
+  <input #boxName class="searchBar" name="competitor" placeholder="Name" (keyup)="getNameValue(boxName.value)">
+  <select #boxYear class="yearDropdown" text="Year" name="year" (change)="getYearValue(boxYear.value)">
     <option *ngFor="let item of yearList;" [ngValue]="item">
       {{item}}
     </option>
