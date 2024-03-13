@@ -24,16 +24,32 @@ h1{
     border-bottom: 1px solid #E6E6E6;
 }
 
-.left-span{
-    float: left;
-    clear: left;
-    margin-left: 35%;
+.left-div{
+    width: 50%;
+    float:left;
     text-align: center;
 }
-.right-span{
+
+.right-div{
+    width: 50%;
     float: right;
-    clear: right;
-    margin-right: 35%;
     text-align: center;
+}
+
+.left-p{
+    float: left;
+    margin-left: 60%;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.right-p{
+    margin-right: 40%;
+    margin-top: 0;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 

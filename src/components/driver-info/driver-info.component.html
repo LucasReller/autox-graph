@@ -1,20 +1,24 @@
 <div class="driver-info" *ngIf="driver != null">
   <h1>{{this.driver.name}}</h1>
   <div class="driver-details">      
-      <span class="left-span">Active Years:</span>  
-      <span class="right-span">{{this.driver.activeYears}}</span>
-      <span class="left-span">Total Events:</span>  
-      <span class="right-span">{{this.driver.totalEventsCompleted}}</span>
-      <span class="left-span">Best DOTY Finish:</span>  
-      <span class="right-span">{{this.driver.bestDOTYFinish}}</span>
-      <span class="left-span">Average DOTY Finish:</span>  
-      <span class="right-span">{{this.driver.avgDOTYFinish}}</span>
-      <span class="left-span">Highest Average DOTY Points:</span>  
-      <span class="right-span">{{this.driver.bestSeasonAvgPoints}}</span>
-      <span class="left-span">Highest Event Points:</span>  
-      <span class="right-span">{{this.driver.bestEventPoints}}</span>
-      <span class="left-span">Overall Average Event Points:</span>  
-      <span class="right-span">{{this.driver.avgEventPoints}}</span>
+    <div class="left-div">
+      <p class="left-p">Active Years:</p>  
+      <p class="left-p">Total Events:</p>  
+      <p class="left-p">Best DOTY Finish:</p>  
+      <p class="left-p">Average DOTY Finish:</p>  
+      <p class="left-p">Highest Average DOTY Points:</p>  
+      <p class="left-p">Highest Event Points:</p>  
+      <p class="left-p">Overall Average Event Points:</p> 
+    </div>
+    <div class="right-div">
+      <p class="right-p">{{this.years}}</p>
+      <p class="right-p">{{this.driver.totalEventsCompleted}}</p>
+      <p class="right-p">{{this.driver.bestDOTYFinish}}</p>
+      <p class="right-p">{{this.driver.avgDOTYFinish}}</p>
+      <p class="right-p">{{this.driver.bestSeasonAvgPoints}}</p>
+      <p class="right-p">{{this.driver.bestEventPoints}}</p>
+      <p class="right-p">{{this.driver.avgEventPoints}}</p>
+    </div>
   </div>
     <br>
   <div class="driver-graph">
